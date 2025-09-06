@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
@@ -18,6 +19,18 @@ except ModuleNotFoundError:
 load_dotenv()
 
 app = FastAPI(title="ragX12 API", version="0.1.0")
+
+# --- CORS (needed for local Vite frontend on port 5173) -------------------------
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Access a dummy variable (not strictly needed, but shows it's loaded)
 DUMMY_VARIABLE = os.getenv("DUMMY_VARIABLE")

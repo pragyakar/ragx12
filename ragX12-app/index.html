@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ragX12 Summarizer</title>
+    <!-- Tailwind CSS via CDN for zero-config styling -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      // Tailwind config for glass + theme
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0B6FA4',
+              accent: '#0FA4AF',
+              surface: 'rgba(255,255,255,0.6)',
+            },
+            backdropBlur: { xs: '2px' }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="min-h-screen antialiased selection:bg-cyan-400/20 selection:text-cyan-100 font-sans">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
